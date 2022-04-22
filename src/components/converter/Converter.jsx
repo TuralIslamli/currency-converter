@@ -3,15 +3,14 @@ import { useSelector } from "react-redux";
 import { selectConverterValues } from "../../modules/redux/selector";
 import "./style.scss";
 
-export default function Converter() {
-  let { USD, EUR } = useSelector(selectConverterValues);
-
+export const Converter =()=> {
+  const { USD, EUR } = useSelector(selectConverterValues);
   const firstRef = useRef();
   const secondRef = useRef();
   const [firstSelect, setFirstSelect] = useState("USD");
   const [secondSelect, setSecondSelect] = useState("UAH");
-  const [firstInputValue, SetFirstInputValue] = useState(1.0);
-  const [SecondInputValue, SetSecondInputValue] = useState();
+  const [firstInputValue, setFirstInputValue] = useState(1.0);
+  const [secondInputValue, setSecondInputValue] = useState();
 
   const handleChangeFirstSelect = (e) => {
     if (e.target.value === secondSelect) {
@@ -28,52 +27,40 @@ export default function Converter() {
   };
 
   const handleChangeFirstInput = (e) => {
-    SetFirstInputValue(e.target.value);
+    setFirstInputValue(e.target.value);
   };
 
   const handleChangeSecondInput = (e) => {
-    SetSecondInputValue(e.target.value);
+    setSecondInputValue(e.target.value);
   };
 
-  useEffect(() => {
-    SetSecondInputValue(USD * firstInputValue);
-  }, [USD]);
+  
+  const inputsCalculations = (selectOne, selectTwo, refOne, refTwo, setInput) =>{
+      console.log('select', refOne.current.value, refTwo.current.value)
+      switch (selectOne) {
+          case "USD":
+              refTwo.current.value = (USD * refOne.current.value).toFixed(2);
+          break;
+        case "EUR":
+            refTwo.current.value = (EUR * refOne.current.value).toFixed(2);
+          break;
+        case "UAH":
+          if (selectTwo === "USD") {
+            refTwo.current.value = (refOne.current.value / USD).toFixed(2);
+          } else {
+            refTwo.current.value = (refOne.current.value / EUR).toFixed(2);
+          }
+          break;
+        }
+    }
+
+    useEffect(() => {
+    inputsCalculations(firstSelect, secondSelect, firstRef, secondRef)
+  }, [firstInputValue, firstSelect, USD]);
 
   useEffect(() => {
-    switch (firstSelect) {
-      case "USD":
-        secondRef.current.value = (USD * firstRef.current.value).toFixed(2);
-        break;
-      case "EUR":
-        secondRef.current.value = (EUR * firstRef.current.value).toFixed(2);
-        break;
-      case "UAH":
-        if (secondSelect === "USD") {
-          secondRef.current.value = (firstRef.current.value / USD).toFixed(2);
-        } else {
-          secondRef.current.value = (firstRef.current.value / EUR).toFixed(2);
-        }
-        break;
-    }
-  }, [firstInputValue, firstSelect]);
-
-  useEffect(() => {
-    switch (secondSelect) {
-      case "USD":
-        firstRef.current.value = (USD * secondRef.current.value).toFixed(2);
-        break;
-      case "EUR":
-        firstRef.current.value = (EUR * secondRef.current.value).toFixed(2);
-        break;
-      case "UAH":
-        if (firstSelect === "USD") {
-          firstRef.current.value = (secondRef.current.value / USD).toFixed(2);
-        } else {
-          firstRef.current.value = (secondRef.current.value / EUR).toFixed(2);
-        }
-        break;
-    }
-  }, [SecondInputValue, secondSelect]);
+    inputsCalculations(secondSelect, firstSelect, secondRef, firstRef)
+  }, [secondInputValue, secondSelect]);
 
   return (
     <div className="main">
@@ -102,7 +89,7 @@ export default function Converter() {
             type="number"
             className="input"
             ref={secondRef}
-            value={SecondInputValue}
+            value={secondInputValue}
             onChange={handleChangeSecondInput}
           />
           <div className="custom-select">

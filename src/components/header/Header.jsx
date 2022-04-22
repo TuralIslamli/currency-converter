@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { selectConverterValues } from "../../modules/redux/selector";
 import "./style.scss";
 
-export default function Header() {
+export const Header = () => {
   const { USD, EUR } = useSelector(selectConverterValues);
 
   return (
