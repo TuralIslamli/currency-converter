@@ -1,0 +1,17 @@
+.header {
+  width: 30%;
+  height: 15vh;
+  background-color: #0058b5;
+  margin: 0 auto;
+  border: 2px solid #ce0927;
+  border-bottom: none;
+  .wrapper {
+    padding-left: 40px;
+    .title,
+    .currence {
+      color: white;
+      font-family: "Roboto Condensed";
+      font-style: normal;
+    }
+  }
+}

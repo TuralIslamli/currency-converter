@@ -1,0 +1,25 @@
+.main {
+  background-color: #F7CE00;
+  width: 30%;
+  height: 15vh;
+  border: 2px solid #ce0927;
+  border-top: none;
+  margin: 0 auto;
+  align-items: flex-start;
+  .wrapper {
+    display: flex;
+    justify-content: flex-start;
+    padding: 10px 0 0 40px;
+  }
+  .section{
+      display: flex;
+      flex-direction: column;
+      margin-right: 10px;
+      .input{
+          margin-bottom: 5px;
+      }
+      .custom-select{
+          
+      }
+  }
+}
