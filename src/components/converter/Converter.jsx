@@ -17,13 +17,21 @@ export const Converter = () => {
     if (input || input.length === 0) setOtherInput((input * rate).toFixed(2));
   };
 
-  const convertProccesSecondInput = (input, setOtherInput) => {
+  const convertProccesSecondInput = (input, setOtherInput, otherInput) => {
     if (input || input.length === 0) setOtherInput((input / rate).toFixed(2));
+  };
+
+  const changeSelect = () => {
+    setSecondInputValue(firstInputValue * rate);
   };
 
   useEffect(() => {
     dispatch(setConverterInputs({ from: firstSelect, to: secondSelect }));
   }, [firstSelect, secondSelect]);
+
+  useEffect(() => {
+    changeSelect();
+  }, [rate]);
 
   return (
     <div className="main">
@@ -37,7 +45,6 @@ export const Converter = () => {
           setSelectValue={setFirstSelect}
           otherSelectValue={secondSelect}
           setOtherSelectValue={setSecondSelect}
-          rate={rate}
         />
         <ConverterFields
           inputValue={secondInputValue}
@@ -48,7 +55,6 @@ export const Converter = () => {
           setSelectValue={setSecondSelect}
           otherSelectValue={firstSelect}
           setOtherSelectValue={setFirstSelect}
-          rate={rate}
         />
       </div>
     </div>

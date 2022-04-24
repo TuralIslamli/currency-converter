@@ -10,9 +10,7 @@ export const ConverterFields = ({
   convertProcces,
   otherSelectValue,
   setOtherSelectValue,
-  rate
 }) => {
-
   const handleChangeInput = (e) => {
     setInputValue(e.target.value);
     convertProcces(e.target.value, setOtherValue);
@@ -24,10 +22,6 @@ export const ConverterFields = ({
     }
     setSelectValue(e.target.value);
   };
-
-  useEffect(()=>{
-    convertProcces(inputValue, setOtherValue)
-  }, [selectValue, rate])
 
   return (
     <div className="section">
