@@ -6,14 +6,14 @@ export const ConverterFields = ({
   setInputValue,
   selectValue,
   setSelectValue,
-  setOtherValue,
+  setOtherInputValue,
   convertProcces,
   otherSelectValue,
   setOtherSelectValue,
 }) => {
   const handleChangeInput = (e) => {
     setInputValue(e.target.value);
-    convertProcces(e.target.value, setOtherValue);
+    convertProcces(e.target.value, setOtherInputValue);
   };
 
   const handleChangeSelect = (e) => {

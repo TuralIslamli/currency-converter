@@ -8,10 +8,10 @@ import "./style.scss";
 export const Converter = () => {
   const dispatch = useDispatch();
   const rate = useSelector(selectConverterRate);
-  const [firstSelect, setFirstSelect] = useState("USD");
-  const [secondSelect, setSecondSelect] = useState("UAH");
-  const [firstInputValue, setFirstInputValue] = useState(0);
-  const [secondInputValue, setSecondInputValue] = useState(0);
+  const [fromSelectValue, setFromSelectValue] = useState("USD");
+  const [toSelectValue, setToSelectValue] = useState("UAH");
+  const [fromInputValue, setFromInputValue] = useState(0);
+  const [toInputValue, setToInputValue] = useState(0);
 
   const convertProccesFirstInput = (input, setOtherInput) => {
     if (input || input.length === 0) setOtherInput((input * rate).toFixed(2));
@@ -22,12 +22,12 @@ export const Converter = () => {
   };
 
   const changeSelect = () => {
-    setSecondInputValue(firstInputValue * rate);
+    setToInputValue(fromInputValue * rate);
   };
 
   useEffect(() => {
-    dispatch(setConverterInputs({ from: firstSelect, to: secondSelect }));
-  }, [firstSelect, secondSelect]);
+    dispatch(setConverterInputs({ from: fromSelectValue, to: toSelectValue }));
+  }, [fromSelectValue, toSelectValue]);
 
   useEffect(() => {
     changeSelect();
@@ -37,24 +37,24 @@ export const Converter = () => {
     <div className="main">
       <div className="wrapper">
         <ConverterFields
-          inputValue={firstInputValue}
+          inputValue={fromInputValue}
           convertProcces={convertProccesFirstInput}
-          setInputValue={setFirstInputValue}
-          setOtherValue={setSecondInputValue}
-          selectValue={firstSelect}
-          setSelectValue={setFirstSelect}
-          otherSelectValue={secondSelect}
-          setOtherSelectValue={setSecondSelect}
+          setInputValue={setFromInputValue}
+          setOtherInputValue={setToInputValue}
+          selectValue={fromSelectValue}
+          setSelectValue={setFromSelectValue}
+          otherSelectValue={toSelectValue}
+          setOtherSelectValue={setToSelectValue}
         />
         <ConverterFields
-          inputValue={secondInputValue}
+          inputValue={toInputValue}
           convertProcces={convertProccesSecondInput}
-          setInputValue={setSecondInputValue}
-          setOtherValue={setFirstInputValue}
-          selectValue={secondSelect}
-          setSelectValue={setSecondSelect}
-          otherSelectValue={firstSelect}
-          setOtherSelectValue={setFirstSelect}
+          setInputValue={setToInputValue}
+          setOtherInputValue={setFromInputValue}
+          selectValue={toSelectValue}
+          setSelectValue={setToSelectValue}
+          otherSelectValue={fromSelectValue}
+          setOtherSelectValue={setFromSelectValue}
         />
       </div>
     </div>
