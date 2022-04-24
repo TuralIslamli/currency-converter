@@ -1,7 +1,8 @@
 # This is "Currency converter" project
 
 This project was made to improve skills.\
-This application has two fields with selects. By filling in the field and selecting a currency, you can get the result of the conversion
+This application has two fields with selects. \
+By filling in the field and selecting a currency, you can get the result of the conversion
 
 ## Getting Started with Create React App
 
