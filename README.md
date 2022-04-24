@@ -2,7 +2,10 @@
 
 This project was made to improve skills.\
 This application has two fields with selects. \
-By filling in the field and selecting a currency, you can get the result of the conversion
+By filling in the field and selecting a currency, you can get the result of the conversion. \
+I would be grateful if you consider and express your opinion. \
+I appreciate every criticism and praise. \
+Thank you. 
 
 ## Getting Started with Create React App
 
