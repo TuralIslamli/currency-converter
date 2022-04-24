@@ -6,7 +6,7 @@ This application has two fields with selects. By filling in the field and select
 ## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-React, redux-toolkit, redux-saga and scss were used.
+Were used react, redux-toolkit, redux-saga and scss.
 Designed for desktop and mobile extensions
 
 ## Api information
