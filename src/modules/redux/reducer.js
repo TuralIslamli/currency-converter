@@ -13,7 +13,11 @@ export const converterSlice = createSlice({
           ...state,
           USD: action.payload.USD.toFixed(2),
           EUR: action.payload.EUR.toFixed(2),
-      })
+      }),
+      setConvertRate: (state, action) => ({
+        ...state,
+        rate:  action.payload.toFixed(2),
+    })
     }
   });
 

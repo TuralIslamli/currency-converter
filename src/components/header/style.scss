@@ -1,17 +1,43 @@
 .header {
-  width: 30%;
+  width: 25%;
   height: 15vh;
-  background-color: #0058b5;
+  background-color:whitesmoke;
   margin: 0 auto;
-  border: 2px solid #ce0927;
+  border: 4px solid blue;;
   border-bottom: none;
   .wrapper {
     padding-left: 40px;
     .title,
     .currence {
-      color: white;
+      color: #000080;
       font-family: "Roboto Condensed";
       font-style: normal;
     }
+  }
+}
+
+@media (max-width: 1200px) {
+  .header {
+    width: 40%;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    width: 65%;
+  }
+}
+
+@media (max-width: 600px) {
+  .header {
+    .wrapper {
+      padding-left: 30px;
+    }
+  }
+}
+
+@media (max-width: 425px) {
+  .header {
+    width: 85%;
   }
 }
