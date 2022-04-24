@@ -1,6 +1,22 @@
-# Getting Started with Create React App
+# This is "Currency converter" project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was made to improve skills.\
+This application has two fields with selects. \
+By filling in the field and selecting a currency, you can get the result of the conversion. \
+I would be grateful if you consider and express your opinion. \
+I appreciate every criticism and praise. \
+Thank you. 
+
+## Getting Started with Create React App
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).\
+Were used react, redux-toolkit, redux-saga and scss.\
+Designed for desktop and mobile extensions.
+
+## Api information
+
+Was used public exchangerate api from https://exchangerate.host/#/ \
+Docs: https://exchangerate.host/#/#docs
 
 ## Available Scripts
 
